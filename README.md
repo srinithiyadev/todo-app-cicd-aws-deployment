@@ -1,45 +1,59 @@
-Simple Flask Todo App using SQLAlchemy and SQLite database.
+# Flask To-Do Application with CI/CD Pipeline
 
-For styling [semantic-ui](https://semantic-ui.com/) is used.
+## Overview
 
-### Setup
-Create project with virtual environment
+This project is a Flask-based To-Do web application integrated with an end-to-end CI/CD pipeline. The application allows users to manage tasks with basic CRUD operations. The deployment process is fully automated using Jenkins and Docker, and the application is hosted on AWS EC2.
 
-```console
-$ mkdir myproject
-$ cd myproject
-$ python3 -m venv venv
-```
+## Tech Stack
 
-Activate it
-```console
-$ . venv/bin/activate
-```
+* Backend: Flask (Python)
+* Database: SQLite
+* CI/CD: Jenkins
+* Containerization: Docker
+* Cloud Platform: AWS EC2
+* Container Registry: DockerHub
 
-or on Windows
-```console
-venv\Scripts\activate
-```
+## Features
 
-Install Flask
-```console
-$ pip install Flask
-$ pip install Flask-SQLAlchemy
-```
+* Add tasks
+* Update task status
+* Delete tasks
+* Persistent storage using SQLite
+* Containerized application
+* Automated build and deployment pipeline
 
-Set environment variables in terminal
-```console
-$ export FLASK_APP=app.py
-$ export FLASK_ENV=development
-```
+## CI/CD Workflow
 
-or on Windows
-```console
-$ set FLASK_APP=app.py
-$ set FLASK_ENV=development
-```
+The application follows a continuous integration and continuous deployment pipeline:
 
-Run the app
-```console
-$ flask run
-```
+1. Code is pushed to GitHub
+2. Jenkins triggers the pipeline
+3. Docker image is built
+4. Image is pushed to DockerHub
+5. Jenkins deploys the latest image to AWS EC2
+6. Application runs inside a Docker container
+
+## Deployment
+
+The application is deployed on an AWS EC2 instance using Docker.
+
+Live URL:
+http://44.201.230.113:5000
+
+## Docker Commands
+
+To build and run locally:
+
+docker build -t todo-app .
+docker run -d -p 5000:5000 todo-app
+
+## Key Learnings
+
+* Implemented a complete CI/CD pipeline using Jenkins
+* Automated deployment to a cloud environment
+* Worked with Docker for containerization
+* Managed real-world deployment issues such as permissions, port conflicts, and remote execution
+
+## Author
+
+Srinithiya
